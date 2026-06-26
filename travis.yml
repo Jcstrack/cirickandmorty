@@ -1,0 +1,52 @@
+# "node_js" indica que el proyecto usa el entorno de Node.js.
+language: node_js
+
+cache:
+  directories:
+    # Aquí se indica qué carpeta se guardará en caché.
+    - ~/.npm
+
+# "node_js" aquí se usa para indicar la versión de Node.js.
+node_js:
+  - "20"
+
+# "depth: 3" quiere decir que solo se descargan los últimos 3 commits.
+git:
+  depth: 3
+
+# Aquí se escribe el comando que Travis correrá durante el build.
+script:
+  - yarn build
+
+# Aquí empieza la configuración para publicar el proyecto automáticamente.
+deploy:
+  # "pages" se refiere a GitHub Pages.
+  provider: pages
+
+  # "edge: true" activa la versión más reciente de esta integración.
+  edge: true
+
+  # "skip-cleanup" significa "saltar limpieza".
+  # En true, Travis no borra los archivos generados antes de publicar.
+  skip-cleanup: true
+
+  # En true, conserva los commits anteriores de la rama gh-pages.
+  keep-history: true
+
+  # Se usa una variable secreta con permisos para publicar.
+  github-token: $GITHUB_TOKEN
+
+  # "dist" es la carpeta con los archivos finales listos para publicar.
+  local-dir: dist
+
+  # "target-branch" significa "rama de destino".
+  # "gh-pages" es la rama donde se subirá el deploy.
+  target-branch: gh-pages
+
+  # Ese texto será el mensaje del commit automático de Travis.
+  commit_message: "Deploy release"
+
+  # "on" significa "cuando" o "bajo esta condición".
+  # Aquí se indica que solo publicará si el build viene de la rama "main".
+  on:
+    branch: main
