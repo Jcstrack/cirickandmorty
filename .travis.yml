@@ -16,7 +16,7 @@ git:
 
 # Aquí se escribe el comando que Travis correrá durante el build.
 script:
-  - yarn build
+  - npm run build
 
 # Aquí empieza la configuración para publicar el proyecto automáticamente.
 deploy:
