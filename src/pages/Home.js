@@ -1,6 +1,6 @@
 import getData from "../utils/getData.js";
 
-// const Home = async () => {
+const Home = async () => {
   const characters = await getData();
 
   const view = `
