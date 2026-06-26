@@ -46,7 +46,6 @@ deploy:
   # Ese texto será el mensaje del commit automático de Travis.
   commit_message: "Deploy release"
 
-  # "on" significa "cuando" o "bajo esta condición".
   # Aquí se indica que solo publicará si el build viene de la rama "main".
   on:
     branch: main
