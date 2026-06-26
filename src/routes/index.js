@@ -12,6 +12,8 @@ const routes = {
   "/contact": "Contact",
 };
 
+//
+
 const router = async () => {
   const header = null || document.getElementById("header");
   const content = null || document.getElementById("content");
